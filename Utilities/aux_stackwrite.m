@@ -16,5 +16,5 @@ function aux_stackwrite(stack, filename)
 
 [~,~,nz] = size(stack);
 for z=1:nz
-    imwrite(uint8(stack(:,:,z)), filename, 'WriteMode', 'append');
+    imwrite(stack(:,:,z), filename, 'WriteMode', 'append');
 end
