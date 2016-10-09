@@ -1,16 +1,18 @@
-%% Demo for the MicroPSF, a fast approximation of the Gibson-Lanni model
+%% Demo for the MicroPSF, a fast and accurate approximation of the Gibson-Lanni model
 % If the parameters are not assigned, default setting will be loaded, see
 % MicroPSF for details.
 
 %   Copyright © Jizhou Li, 2016, The Chinese University of Hong Kong
-%   Update date: 28 Aug, 2016
+%   Update date: 09 Oct, 2016
 
 addpath('Utilities/');
 
 clear; clc;
-params.size = [128 128 64];
+params.size = [256 256 128];
 
-params.numBasis = 150;
+params.basis = 3;
+
+params.numBasis = 50;
 
 tic;
 PSF = MicroPSF(params);

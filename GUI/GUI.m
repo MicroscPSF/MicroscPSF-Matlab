@@ -23,9 +23,7 @@ function varargout = GUI(varargin)
 % Edit the above text to modify the response to help GUI
 
 %   Copyright © Jizhou Li, 2016, The Chinese University of Hong Kong
-%   Update date: 28 Aug, 2016
-
-% Last Modified by GUIDE v2.5 28-Aug-2016 22:05:03
+%   Update date: 09 Oct, 2016
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -44,9 +42,9 @@ if nargout
 else
     gui_mainfcn(gui_State, varargin{:});
 end
-filepath1 = [cd,filesep, 'Utilities'];
-addpath(filepath1);
-
+filepath1 = [cd,filesep, '../Utilities'];
+filepath2 = [cd,filesep, '../'];
+addpath(filepath1,filepath2);
 
 % End initialization code - DO NOT EDIT
 
@@ -62,7 +60,7 @@ function GUI_OpeningFcn(hObject, eventdata, handles, varargin)
 % Choose default command line output for GUI
 handles.output = hObject;
 
-set(handles.popBasis, 'String', {'3m-2', 'J0 zeros', 'J1 zeros', 'Dini series'});
+set(handles.popBasis, 'String', {'2.7m-2', 'J0 zeros', 'J1 zeros','Dini series'});
 set(handles.lbLog, 'String','Please define parameters and press Run');
 
 set(handles.pushbutton2, 'Enable', 'off');
@@ -509,13 +507,13 @@ params.size = [params.nx params.ny params.nz];
 basis = get(handles.popBasis,'Value');
 switch basis
     case 1 % 3m-2
-        params.basis = 3;
+        params.basis = 2;
     case 2 % J0
         params.basis = 0;
     case 3 % J1
         params.basis = 1;
     case 4 % Dini
-        params.basis = 2;
+        params.basis = 3;
 end
 
 params.numBasis = str2num(get(handles.txtM,'String'));

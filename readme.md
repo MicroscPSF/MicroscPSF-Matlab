@@ -26,3 +26,8 @@ tic;
 PSF = MicroPSF(params);
 toc
 ```
+
+Update log
+-----------
+*(09 Oct, 2016) Optimized code, the speed has been improved 10 times faster!
+
