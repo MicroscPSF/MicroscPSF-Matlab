@@ -12,7 +12,7 @@ params.size = [256 256 128];
 
 params.basis = 3;
 
-params.numBasis = 50;
+params.numBasis = 150;
 
 tic;
 PSF = MicroPSF(params);
