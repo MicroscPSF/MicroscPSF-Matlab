@@ -1,6 +1,6 @@
 Super-Fast and Accurate 3D PSF Computation in Fluorescence Microscopy
 =============
-J. Li, F. Xue and T. Blu, _J. Opt. Soc. Am. A_, submitted.
+[J. Li](http://www.ee.cuhk.edu.hk/~jzli/), [F. Xue](https://www.researchgate.net/profile/Feng_Xue17) and [T. Blu](http://www.ee.cuhk.edu.hk/~tblu/monsite/phps/index.php), _J. Opt. Soc. Am. A_, submitted.
 
 This set of codes is a fast approximation of 3D PSF model in fluorescernce microscopy, based on Gibson-Lanni model.
 
