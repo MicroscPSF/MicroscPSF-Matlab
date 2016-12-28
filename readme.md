@@ -27,10 +27,13 @@ tic;
 PSF = MicroPSF(params);
 toc
 ```
+GUI
+-----------
+![GUI of MicroscPSF](GUI/screenshot.png?raw=true "GUI")
+
 
 Update log
 -----------
-*(28 Dec, 2016) Refined basis functions. 
-
-*(09 Oct, 2016) Optimized code, the speed has been improved 10 times faster!
+- (28 Dec, 2016) Refined basis functions. 
+- (09 Oct, 2016) Optimized code, the speed has been improved 10 times faster!
 
