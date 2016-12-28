@@ -45,7 +45,7 @@ params.nz = size(3);
 
 %% default parameters
 if ~isfield(params,'numInterval')
-    params.numInterval = 1000000;
+    params.numInterval = 10000000;
 end
 if ~isfield(params,'overSampling')
     params.overSampling = 2;
