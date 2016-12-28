@@ -19,6 +19,8 @@ save(['Data/GT_' strrep(num2str(params.size), '  ', '_')], GT);
 Usage of the Proposed Method
 -----------
 
+If the parameters of the microscope are not assigned, default setting will be loaded, see MicroscPSF for details.
+
 ```
 params.size = [256 256 128];
 tic;
@@ -29,5 +31,6 @@ toc
 Update log
 -----------
 *(28 Dec, 2016) Refined basis functions. 
+
 *(09 Oct, 2016) Optimized code, the speed has been improved 10 times faster!
 
