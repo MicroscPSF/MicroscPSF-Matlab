@@ -1,6 +1,6 @@
-%% Demo for the MicroPSF, a super-fast and accurate approximation of the Gibson-Lanni model
+%% Demo for the MicroPSF, a fast and accurate approximation of the Gibson-Lanni model
 % If the parameters are not assigned, default setting will be loaded, see
-% MicroPSF for details.
+% MicroscPSF for details.
 %
 %   Reference:
 %       [1] Gibson, S.F. & Lanni, F., 1992.
@@ -10,7 +10,7 @@
 %       [2] Li, J., Luisier, F. and Blu, T. Fast and accurate 3D PSF
 %           computation in fluorescence microscopy. JOSA A. Submitted.
 %
-%   Copyright Â© Jizhou Li, 2016, The Chinese University of Hong Kong
+%   Copyright © Jizhou Li, 2016, The Chinese University of Hong Kong
 %   Update date: 28 Dec, 2016
 
 addpath('Utilities/');
