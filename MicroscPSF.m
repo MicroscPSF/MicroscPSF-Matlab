@@ -31,13 +31,13 @@ function PSF = MicroscPSF(params)
 %           Experimental test of an analytical model of aberration in an
 %           oil-immersion objective lens used in three-dimensional light
 %           microscopy. JOSA A, 9(1), pp.154-166.
-%       [2] Li, J., Luisier, F. and Blu, T. Fast and accurate 3D PSF
+%       [2] Li, J., Xue, F. and Blu, T. Fast and accurate 3D PSF
 %           computation in fluorescence microscopy. JOSA A. Submitted.
 %
 %   See also AUX_BESSEL, AUX_SHOWPSF
 
-%   Copyright Â© Jizhou Li, 2016, The Chinese University of Hong Kong
-%   Update date: 28 Dec, 2016
+%   Copyright © Jizhou Li, 2016, The Chinese University of Hong Kong
+%   Update date: 17 Jan, 2017
 
 warning off;
 if ~isfield(params,'size')
@@ -137,13 +137,13 @@ Ab = A.*b;
 
 %%%%%%%
 % min wavelength
-k00 = 2*pi/(300e-9);
+k00 = 2*pi/(545e-9);
 factor1 = k0./k00;
 % max numerical aperture
 NA0 = 1.4;
 factor2 = params.NA./NA0;
 %%%%%%%
-an = (3*[1:NN]-2)*2;
+an = (3*[1:NN]-2);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 an = an.*(factor1)*(factor2);
 
