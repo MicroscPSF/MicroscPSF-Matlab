@@ -1,21 +1,12 @@
-Fast and Accurate 3D PSF Computation in Fluorescence Microscopy
+Fast and Accurate 3D PSF Computation for Fluorescence Microscopy
 =============
-[J. Li](http://www.ee.cuhk.edu.hk/~jzli/), [F. Xue](https://www.researchgate.net/profile/Feng_Xue17) and [T. Blu](http://www.ee.cuhk.edu.hk/~tblu/monsite/phps/index.php), _J. Opt. Soc. Am. A_, submitted.
+[J. Li](http://www.ee.cuhk.edu.hk/~jzli/), [F. Xue](https://www.researchgate.net/profile/Feng_Xue17) and [T. Blu](http://www.ee.cuhk.edu.hk/~tblu/monsite/phps/index.php), _J. Opt. Soc. Am. A_, accepted.
 
-This set of codes is a fast approximation of 3D PSF model in fluorescernce microscopy, based on Gibson-Lanni model.
+This set of codes is a fast approximation of 3D PSF model in fluorescernce microscopy, based on Gibson-Lanni model. See [the page](http://www.ee.cuhk.edu.hk/~jzli/MicroscPSF) for details.
 
-0. **Groundtruth Generator** For comparison, it is necessarty to generate a grouth truth for the PSF model. We use the Simpson rule to compute the integral. 
-0. **Fast approximation** Current approximation can be 498 times faster than the state-of-the-art tool [PSF Generator](http://bigwww.epfl.ch/algorithms/psfgenerator/). 
-    Note the `PSF Generator` uses Java language with mult-threading while the proposed uses pure Matlab without any compiled routine.
+**Fast approximation** Current approximation can be 498 times faster than the state-of-the-art tool [PSF Generator](http://bigwww.epfl.ch/algorithms/psfgenerator/) for size 511*511*255. 
+    Note the `PSF Generator` uses Java language with mult-threading, while the proposed uses pure Matlab without any compiled routine.
 
-Groud truth Generator
--------
-
-```
-params.size = [64 64 32];
-GT = aux_GTgenerator(params);
-save(['Data/GT_' strrep(num2str(params.size), '  ', '_')], GT);
-```
 
 Usage of the Proposed Method
 -----------
@@ -32,9 +23,28 @@ GUI
 -----------
 ![GUI of MicroscPSF](GUI/screenshot.jpg?raw=true "GUI")
 
+Even faster?
+-------
+
+The last interpolation step is implementated using mex files, which reduce the time cost 50%.
+
+```
+cd Utilities
+mex transformation.cpp
+```
+
+```
+params.size = [256 256 128];
+params.fastcom = 1;
+tic;
+PSF = MicroPSF(params);
+toc
+```
+
 
 Update log
 -----------
+- (04 May, 2017) Add mex implementation, the speed is further improved 2 times!
 - (28 Dec, 2016) Refined basis functions. 
 - (09 Oct, 2016) Optimized code, the speed has been improved 10 times faster!
 

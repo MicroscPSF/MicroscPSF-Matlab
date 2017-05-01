@@ -8,21 +8,22 @@
 %           oil-immersion objective lens used in three-dimensional light
 %           microscopy. JOSA A, 9(1), pp.154-166.
 %       [2] Li, J., Xue, F. and Blu, T. Fast and accurate 3D PSF
-%           computation in fluorescence microscopy. JOSA A. Submitted.
+%           computation for fluorescence microscopy. JOSA A. Accepted.
 %
 %   Copyright © Jizhou Li, 2016, The Chinese University of Hong Kong
-%   Update date: 28 Dec, 2016
+%   Update date: 4 May, 2017
 
 addpath('Utilities/');
 
 clear; clc;
 params.size = [256 256 128];
+% params.fastcom = 1; % even faster, may need recompile
 
 tic;
 PSF = MicroscPSF(params);
 t = toc;
 
-% Accuracy evaluation, PSNR with the ground truth
+% Accuracy evaluation, PSNR and RSE with the ground truth
 load(['Data/GT_' strrep(num2str(params.size), '  ', '_')]);
 PSNR = aux_PSNR(PSF,GT);
 RSE = aux_RSE(PSF,GT);

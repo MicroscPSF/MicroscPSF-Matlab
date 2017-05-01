@@ -15,7 +15,6 @@ function aux_showPSF(PSF, options)
 %       Image = squeeze(D);
 %       aux_showPSF(Image);
 %
-%   See also aux_showProfile
 
 %   Copyright © Jizhou Li, 2016, The Chinese University of Hong Kong
 %   Update date: 22 Aug, 2016
