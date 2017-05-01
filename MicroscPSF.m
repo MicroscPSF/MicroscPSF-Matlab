@@ -119,7 +119,9 @@ R = [0:params.overSampling*maxRadius-1]./params.overSampling;
 Ti = params.ti0 + params.resAxial*([0:params.nz-1] - ((params.nz - 1.0) / 2.0));
 
 a = 0;
-b = min(1, params.ns/params.NA);
+b = min([1, params.ns/params.NA, params.ni/params.NA, params.ni0/params.NA,...
+    params.ng0/params.NA,params.ng/params.NA]);
+
 L = params.numSamp;
 
 Rho = linspace(a,b,L)';
