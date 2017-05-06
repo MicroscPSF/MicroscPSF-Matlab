@@ -4,7 +4,7 @@ Fast and Accurate 3D PSF Computation for Fluorescence Microscopy
 
 This set of codes is a fast approximation of 3D PSF model in fluorescernce microscopy, based on Gibson-Lanni model. See [the page](http://www.ee.cuhk.edu.hk/~jzli/MicroscPSF) for details.
 
-**Fast approximation** Current approximation can be 498 times faster than the state-of-the-art tool [PSF Generator](http://bigwww.epfl.ch/algorithms/psfgenerator/) for size 511*511*255. 
+**Fast approximation** Current approximation can be 498 times faster than the state-of-the-art tool [PSF Generator](http://bigwww.epfl.ch/algorithms/psfgenerator/) for size 511x511x255. 
     Note the `PSF Generator` uses Java language with mult-threading, while the proposed uses pure Matlab without any compiled routine.
 
 
@@ -46,7 +46,7 @@ System Tested
 
 Mac | |
 --- | --- |
-`MATLAB R2016a` | R2015b |
+`MATLAB R2016a` | `MATLAB R2015b` |
 
 
 Update log
