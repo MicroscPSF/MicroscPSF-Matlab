@@ -41,7 +41,7 @@ function PSF = MicroscPSF(params)
 %
 %   Acknowledgement: PSFgenerator (http://bigwww.epfl.ch/algorithms/psfgenerator/)
 %
-%   Copyright © Jizhou Li, 2016, The Chinese University of Hong Kong
+%   Copyright © Jizhou Li, Feng Xue and Thierry Blu, 2017
 %   Update date: 4 May, 2017
 
 warning off;

@@ -10,7 +10,7 @@
 %       [2] Li, J., Xue, F. and Blu, T. Fast and accurate 3D PSF
 %           computation for fluorescence microscopy. JOSA A. Accepted.
 %
-%   Copyright © Jizhou Li, 2016, The Chinese University of Hong Kong
+%   Copyright © Jizhou Li, Feng Xue and Thierry Blu, 2017
 %   Update date: 4 May, 2017
 
 addpath('Utilities/');
@@ -18,6 +18,9 @@ addpath('Utilities/');
 clear; clc;
 params.size = [256 256 128];
 % params.fastcom = 1; % even faster, may need recompile
+
+params.numBasis = 100;
+params.numSamp = 1000;
 
 tic;
 PSF = MicroscPSF(params);

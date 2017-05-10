@@ -65,6 +65,9 @@ set(handles.lbLog, 'String','Please define parameters and press Run');
 
 set(handles.pushbutton2, 'Enable', 'off');
 
+set(handles.sliderM, 'min', 100);
+set(handles.sliderM, 'max', 300);
+set(handles.sliderM, 'Value', 100);
 % Update handles structure
 guidata(hObject, handles);
 
@@ -390,6 +393,16 @@ function txtM_Callback(hObject, eventdata, handles)
 
 % Hints: get(hObject,'String') returns contents of txtM as text
 %        str2double(get(hObject,'String')) returns contents of txtM as a double
+params.numBasis = str2num(get(handles.txtM,'String'));
+params.numSamp = str2num(get(handles.txtK,'String'));
+
+if (params.numBasis<100)&&(params.numSamp<1000)
+    msgbox('Better parameters: M>=100, K>=1000.');
+end
+
+rseFun = @(M,K)(M/45)^(-6.5)*(K/80)^(-1.5);
+RSE = rseFun(params.numBasis,params.numSamp);
+set(handles.txtRSE,'String',sprintf('%0.2e',RSE));
 
 
 % --- Executes during object creation, after setting all properties.
@@ -627,6 +640,7 @@ PSF = handles.PSF;
 nz = handles.nz;
 current = floor(nz/2);
 handles.currentPSF = PSF;
+set(handles.axisLabel, 'String', '');
 showPSF3(hObject, handles, PSF, current, nz);
 guidata(hObject, handles);
 end
@@ -646,6 +660,7 @@ handles.currentPSF = PSF;
 nz = handles.nz;
 current = floor(nz/2);
 set(handles.slider1, 'Enable', 'on');
+set(handles.axisLabel, 'String', 'Z axis');
 showPSF(hObject, handles, PSF, current, nz);
 guidata(hObject, handles);
 end
@@ -667,7 +682,7 @@ nz = size(PSF,3);
 current = floor(nz/2);
 set(handles.slider1, 'Enable', 'on');
 handles.currentPSF = PSF;
-
+set(handles.axisLabel, 'String', 'Y axis');
 showPSF(hObject, handles, PSF, current, nz);
 guidata(hObject, handles);
 end
@@ -685,7 +700,7 @@ nz = size(PSF,3);
 current = floor(nz/2);
 set(handles.slider1, 'Enable', 'on');
 handles.currentPSF = PSF;
-
+set(handles.axisLabel, 'String', 'X axis');
 showPSF(hObject, handles, PSF, current, nz);
 guidata(hObject, handles);
 end
@@ -812,3 +827,116 @@ function radiobutton7_Callback(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 
 % Hint: get(hObject,'Value') returns toggle state of radiobutton7
+
+
+% --- Executes on button press in pushbutton3.
+function pushbutton3_Callback(hObject, eventdata, handles)
+% hObject    handle to pushbutton3 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+set(handles.txtLambda,'String','610');
+set(handles.txtNA,'String','1.4');
+set(handles.txtNs,'String','1.33');
+set(handles.txtNi,'String','1.5');
+set(handles.txtNg,'String','1.5');
+set(handles.txtTg,'String','170');
+set(handles.txtTi,'String','150');
+set(handles.txtZp,'String','2000');
+set(handles.txtLateral,'String','100');
+set(handles.txtAxial,'String','250');
+set(handles.txtPx,'String','256');
+set(handles.txtPy,'String','256');
+set(handles.txtPz,'String','128');
+set(handles.txtM,'String','100');
+set(handles.txtK,'String','1000');
+rseFun = @(M,K)(M/45)^(-6.5)*(K/80)^(-1.5);
+RSE = rseFun(100,1000);
+set(handles.txtRSE,'String',sprintf('%0.2e',RSE));
+set(handles.sliderM,'Value',100);
+guidata(hObject, handles);
+
+
+% --- Executes on slider movement.
+function sliderM_Callback(hObject, eventdata, handles)
+% hObject    handle to sliderM (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'Value') returns position of slider
+%        get(hObject,'Min') and get(hObject,'Max') to determine range of slider
+
+M = get(handles.sliderM,'Value');
+rseFun = @(M,K)(M/45)^(-6.5)*(K/80)^(-1.5);
+RSE = rseFun(M, 1000);
+set(handles.txtRSE,'String',sprintf('%0.2e',RSE));
+set(handles.txtM,'String',round(M));
+guidata(hObject, handles);
+
+
+
+% --- Executes during object creation, after setting all properties.
+function sliderM_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to sliderM (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: slider controls usually have a light gray background.
+if isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor',[.9 .9 .9]);
+end
+
+
+
+function txtRSE_Callback(hObject, eventdata, handles)
+% hObject    handle to txtRSE (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of txtRSE as text
+%        str2double(get(hObject,'String')) returns contents of txtRSE as a double
+RSE = str2num(get(handles.txtRSE,'String'));
+
+if isempty(RSE)||RSE<9.98e-08||RSE>1.26e-4
+    msgbox('Error is not numeric or too small/large.');
+    set(handles.txtRSE,'String','1.26e-4');
+     set(handles.txtM,'String','100');
+else
+
+Mfun = @(x,K)45*exp(1./6.5*(-1.5*log(K/80)-log(x)));
+M = round(Mfun(RSE, 1000));
+set(handles.txtM,'String',M);
+guidata(hObject, handles);
+
+end
+
+
+
+% --- Executes during object creation, after setting all properties.
+function txtRSE_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to txtRSE (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+% --- If Enable == 'on', executes on mouse press in 5 pixel border.
+% --- Otherwise, executes on mouse press in 5 pixel border or over txtM.
+function txtM_ButtonDownFcn(hObject, eventdata, handles)
+% hObject    handle to txtM (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+
+% --- Executes on key press with focus on txtM and none of its controls.
+function txtM_KeyPressFcn(hObject, eventdata, handles)
+% hObject    handle to txtM (see GCBO)
+% eventdata  structure with the following fields (see MATLAB.UI.CONTROL.UICONTROL)
+%	Key: name of the key that was pressed, in lower case
+%	Character: character interpretation of the key(s) that was pressed
+%	Modifier: name(s) of the modifier key(s) (i.e., control, shift) pressed
+% handles    structure with handles and user data (see GUIDATA)
