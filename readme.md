@@ -21,7 +21,7 @@ toc
 ```
 GUI
 -----------
-![GUI of MicroscPSF](GUI/screenshot.jpg?raw=true "GUI")
+![GUI of MicroscPSF](GUI/screenshot.png?raw=true "GUI")
 
 Even faster?
 -------
