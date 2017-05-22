@@ -55,3 +55,11 @@ Update log
 - (28 Dec, 2016) Refined basis functions. 
 - (09 Oct, 2016) Optimized code, the speed has been improved 10 times faster!
 
+Related
+-----------
+
+* Matlab code: https://github.com/hijizhou/MicroscPSF-Matlab.
+
+* ImageJ plugin: https://github.com/hijizhou/MicroscPSF-ImageJ.
+
+* Icy plugin: https://github.com/hijizhou/MicroscPSF-Icy.
