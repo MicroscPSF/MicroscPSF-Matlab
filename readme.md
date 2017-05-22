@@ -1,4 +1,4 @@
-Fast and Accurate 3D PSF Computation for Fluorescence Microscopy
+Fast and Accurate Three-Dimensional Point Spread Function Computation for Fluorescence Microscopy
 =============
 [J. Li](http://www.ee.cuhk.edu.hk/~jzli/), [F. Xue](https://www.researchgate.net/profile/Feng_Xue17) and [T. Blu](http://www.ee.cuhk.edu.hk/~tblu/monsite/phps/index.php), _J. Opt. Soc. Am. A_, 34(6), 2017. To appear.
 
