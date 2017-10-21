@@ -63,3 +63,13 @@ Related
 * ImageJ plugin: https://github.com/hijizhou/MicroscPSF-ImageJ.
 
 * Icy plugin: https://github.com/hijizhou/MicroscPSF-Icy.
+
+Acknowledgement
+-----------
+[PSFgenerator](http://bigwww.epfl.ch/algorithms/psfgenerator/)
+
+License
+-----------
+Copyright (c) 2017, Jizhou Li, Feng Xue and Thierry Blu
+
+The source code is released under the [MIT license](https://opensource.org/licenses/MIT).
