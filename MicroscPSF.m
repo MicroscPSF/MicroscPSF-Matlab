@@ -35,7 +35,8 @@ function PSF = MicroscPSF(params)
 %           oil-immersion objective lens used in three-dimensional light
 %           microscopy. JOSA A, 9(1), pp.154-166.
 %       [2] Li, J., Xue, F. and Blu, T. Fast and accurate 3D PSF
-%           computation for fluorescence microscopy. JOSA A. Accepted.
+%           computation for fluorescence microscopy. J. Opt. Soc. Am. A,
+%           34(6), pp. 1029-1034, 2017.
 %
 %   See also AUX_BESSEL, AUX_SHOWPSF
 %

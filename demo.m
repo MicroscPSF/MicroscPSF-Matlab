@@ -6,9 +6,10 @@
 %       [1] Gibson, S.F. & Lanni, F., 1992.
 %           Experimental test of an analytical model of aberration in an
 %           oil-immersion objective lens used in three-dimensional light
-%           microscopy. JOSA A, 9(1), pp.154-166.
+%           microscopy. J. Opt. Soc. Am. A, 9(1), pp.154-166.
 %       [2] Li, J., Xue, F. and Blu, T. Fast and accurate 3D PSF
-%           computation for fluorescence microscopy. JOSA A. Accepted.
+%           computation for fluorescence microscopy. J. Opt. Soc. Am. A,
+%           34(6), pp. 1029-1034, 2017.
 %
 %   Copyright © Jizhou Li, Feng Xue and Thierry Blu, 2017
 %   Update date: 4 May, 2017
