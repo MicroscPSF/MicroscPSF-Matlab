@@ -2,7 +2,7 @@ Fast and Accurate Three-Dimensional Point Spread Function Computation for Fluore
 =============
 [J. Li](http://www.ee.cuhk.edu.hk/~jzli/), [F. Xue](https://www.researchgate.net/profile/Feng_Xue17) and [T. Blu](http://www.ee.cuhk.edu.hk/~tblu/monsite/phps/index.php), _J. Opt. Soc. Am. A_, 34(6), pp. 1029-1034, 2017.
 
-This set of codes is a fast approximation of 3D PSF model in fluorescernce microscopy, based on Gibson-Lanni model. See [the page](http://jizhou.li/project/microsc_psf) for details.
+This set of codes is a fast approximation of 3D PSF model in fluorescernce microscopy, based on Gibson-Lanni model. See [the page]([http://jizhou.li/project/microsc_psf](https://www.aimicroscopy.org/microsc_psf/)) for details.
 
 **Fast approximation** Current approximation can be 498 times faster than the state-of-the-art tool [PSF Generator](http://bigwww.epfl.ch/algorithms/psfgenerator/) for size 511x511x255. 
     Note the `PSF Generator` uses Java language with mult-threading, while the proposed uses pure Matlab without any compiled routine.
